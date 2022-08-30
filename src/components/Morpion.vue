@@ -26,7 +26,7 @@
             <li class="blank" id="h" @click="clickedOnCell($event, 8)"></li>
             <li class="blank" id="i" @click="clickedOnCell($event, 9)"></li>
         </ul>
-        <input type="button" value="Reset" @click="reset">
+        <input type="button" value="Restart" @click="restart">
   </div>
 
 </template>
@@ -45,6 +45,7 @@ export default {
       step:1,
       turn: 0
     }
+    
   },
   methods: {
     nextStep() {
@@ -66,31 +67,27 @@ export default {
       }
     },
 
-
-  
-   
     
     checkIfSomeoneWon() {
       // this method is called each time a player clicks succesfully on a cell
       //console.log(this.playerPositions)
       //this.playerPositions contains two arrays
       // check if one of these arrays  contains a winning combination. If so, he won
+      // if(a.cross == b.cross == c.cross){win},
       
       //let winningCombination = [ [1,2,3] , [4,5,6] ]
     },
-    reset(){
+    restart(){
       let liste_of_li = document.getElementsByTagName('li');
       for(let index in liste_of_li) {
         let li = liste_of_li[index]
         li.className = "blank"
       }
-    }
+    },
 
-  },
 
   }
-  
-
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -144,14 +141,11 @@ h2{
 
 ul {
   width: 50vw;
-  padding: 10px; 
   color: white;
 }
 
 li {
-   list-style-type: none;
-  margin: 0 10px;
-  padding: 5px; 
+   list-style-type:square; 
   line-height: 1.5em;
   text-align: left;
   
@@ -255,5 +249,4 @@ ul.game {
 }
 
 }
-
 </style>
